@@ -1,0 +1,28 @@
+@mixin top {
+    .header {
+        height: 45rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 2rem 0 #f1f1f1;
+
+        &_back_iconfont {
+            font-size: 18rem;
+            color: #b6b6b6;
+            margin-left: 18rem;
+        }
+
+        &_text {
+            font-family: PingFangSC-Regular;
+            font-size: 16rem;
+            color: #333;
+        }
+
+        &_create {
+            font-family: PingFangSC-Regular;
+            font-size: 14rem;
+            color: #333;
+            margin-right: 18rem;
+        }
+    }
+}
