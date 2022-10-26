@@ -33,11 +33,11 @@
 
 <script>
 import { ref } from "vue";
-import { get } from "../../utils/request";
-import Dockers from "../../components/Dockers.vue";
+import { get } from "@/utils/request";
+import Dockers from "@/components/Dockers.vue";
 const useOrderListEffect = () => {
   const orderList = ref([]);
-  // 获取订单列表
+  // 获取选中的订单列表
   const getOrderList = async () => {
     const result = await get("/order");
     if (result.data.code === "0000") {
@@ -84,8 +84,6 @@ export default {
   color: #333;
   text-align: center;
   line-height: 45rem;
-  box-sizing: border-box;
-  box-shadow: 0 1rem 3rem 0 #f1f1f1;
 }
 .order {
   position: absolute;

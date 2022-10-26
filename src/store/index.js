@@ -77,8 +77,8 @@ export default createStore({
       }
       setLocalCartData(state);
     },
-    // 清空购物车
-    clearCart(state, payload) {
+    // 清空购物篮
+    clearBasket(state, payload) {
       const { shopId } = payload;
       state.cartData[shopId].itemList = {};
       setLocalCartData(state);

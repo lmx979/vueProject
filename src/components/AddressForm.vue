@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/mixins.scss";
+@import "@/style/mixins.scss";
 .form {
   width: 375rem;
   height: 225rem;

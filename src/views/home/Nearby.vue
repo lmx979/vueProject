@@ -14,9 +14,9 @@
 
 <script>
 import { ref } from "vue";
-import { get } from "../../utils/request";
-import Toast, { showToastEffect } from "../../components/Toast.vue";
-import ShopInfo from "../../components/ShopInfo.vue";
+import { get } from "@/utils/request";
+import Toast, { showToastEffect } from "@/components/Toast.vue";
+import ShopInfo from "@/components/ShopInfo.vue";
 const useNearbyEffect = (showToast) => {
   const nearbyItems = ref({});
   const getNearbyItems = async () => {

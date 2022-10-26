@@ -18,14 +18,14 @@ export const useCommonCartEffect = () => {
   const setAllChecked = (shopId) => {
     store.commit("setAllChecked", { shopId });
   };
-  const clearCart = (shopId) => {
-    store.commit("clearCart", { shopId });
+  const clearBasket = (shopId) => {
+    store.commit("clearBasket", { shopId });
   };
   return {
     cartData,
     changeItemToCart,
     changeItemChecked,
     setAllChecked,
-    clearCart,
+    clearBasket,
   };
 };

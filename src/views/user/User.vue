@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import Dockers from "../../components/Dockers.vue";
+import Dockers from "@/components/Dockers.vue";
 export default {
   name: "User",
   components: { Dockers },

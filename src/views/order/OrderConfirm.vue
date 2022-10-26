@@ -21,34 +21,70 @@
     </div>
     <div class="container_order">
       <div class="container_order_shopname">{{ shopName }}</div>
-      <div class="container_order_info" id="info">
+      <div class="container_order_info">
+        <!-- 显示购物车前两个商品信息 -->
         <div
-          v-for="item of itemList"
+          v-for="item of Object.keys(itemCheckedList).slice(0, 2)"
           :key="item.id"
           class="container_order_info_item"
         >
           <div class="container_order_info_item_left">
-            <img :src="item.imgUrl" alt="" />
+            <img :src="itemCheckedList[item].imgUrl" />
           </div>
           <div class="container_order_info_item_right">
-            <div class="name">{{ item.name }}</div>
+            <div class="name">{{ itemCheckedList[item].name }}</div>
             <div class="price">
-              <div class="num">
-                ￥{{ item.promotionPrice }} × {{ item.count }}
+              <div class="price_count">
+                ￥{{ itemCheckedList[item].promotionPrice }} ×
+                {{ itemCheckedList[item].count }}
               </div>
-              <div class="sum">
-                ￥{{ (item.promotionPrice * item.count).toFixed(2) }}
+              <div class="price_sum">
+                ￥{{
+                  (
+                    itemCheckedList[item].promotionPrice *
+                    itemCheckedList[item].count
+                  ).toFixed(2)
+                }}
               </div>
             </div>
           </div>
         </div>
+        <!-- 超过两条的信息点击才显示 -->
+        <template v-if="!showMore">
+          <div
+            v-for="item of Object.keys(itemCheckedList).slice(2)"
+            :key="item.id"
+            class="container_order_info_item"
+          >
+            <div class="container_order_info_item_left">
+              <img :src="itemCheckedList[item].imgUrl" />
+            </div>
+            <div class="container_order_info_item_right">
+              <div class="name">{{ itemCheckedList[item].name }}</div>
+              <div class="price">
+                <div class="price_count">
+                  ￥{{ itemCheckedList[item].promotionPrice }} ×
+                  {{ itemCheckedList[item].count }}
+                </div>
+                <div class="price_sum">
+                  ￥{{
+                    (
+                      itemCheckedList[item].promotionPrice *
+                      itemCheckedList[item].count
+                    ).toFixed(2)
+                  }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
       </div>
       <div class="container_order_more" @click="handleMore">
-        <span v-if="!showMore" class="container_order_more_text"
+        <span v-if="showMore" class="container_order_more_text"
           >共计 {{ sumNumber }} 件</span
         >
         <span v-else class="container_order_more_text">收起更多</span>
-        <span v-if="!showMore" class="container_order_more_iconfont"
+        <span v-if="showMore" class="container_order_more_iconfont"
           >&#xe6e9;</span
         >
         <span v-else class="container_order_more_iconfont">&#xe6e8;</span>
@@ -88,7 +124,7 @@
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
-import { useBackRouterEffect } from "../../effects/backEffect";
+import { useBackRouterEffect } from "@/effects/backEffect";
 const useOrderEffect = () => {
   const store = useStore();
   const route = useRoute();
@@ -96,34 +132,32 @@ const useOrderEffect = () => {
   const shopId = route.params.shopId;
   // 获取购物车数据
   const cartData = store.state.cartData;
-  // 店铺名称
+  // 获取店铺名称
   const shopName = cartData[shopId].shopName;
-  // 购物车商品列表
+  // 获取购物车的商品列表
   const itemList = cartData[shopId].itemList;
+  // 只获取checked为true的商品
+  let itemCheckedList = {};
+  for (const key in itemList) {
+    if (itemList[key].checked) {
+      itemCheckedList[key] = itemList[key];
+    }
+  }
   // 计算总价和总量
   let sumPrice = 0.0;
   let sumNumber = 0;
-  for (const key in itemList) {
-    sumPrice += itemList[key].promotionPrice * itemList[key].count;
-    sumNumber += itemList[key].count;
+  for (const key in itemCheckedList) {
+    sumPrice += itemCheckedList[key].promotionPrice * itemCheckedList[key].count;
+    sumNumber += itemCheckedList[key].count;
   }
   sumPrice = sumPrice.toFixed(2);
   // 返回数据
-  return { shopName, itemList, sumPrice, sumNumber };
+  return { shopName, itemCheckedList, sumPrice, sumNumber };
 };
 const useShowMoreEffect = () => {
-  let showMore = ref(false);
+  const showMore = ref(true);
   const handleMore = () => {
     showMore.value = !showMore.value;
-    const orderInfo = document.getElementById("info");
-    if (showMore.value) {
-      orderInfo.style.maxHeight = "230rem";
-      orderInfo.style.overflowY = "auto";
-    } else {
-      orderInfo.style.maxHeight = "108rem";
-      orderInfo.style.overflowY = "hidden";
-      orderInfo.scrollTop = 0;
-    }
   };
   return { showMore, handleMore };
 };
@@ -151,7 +185,7 @@ const useSubmitEffect = () => {
     // 订单提交后，要清空购物车
     alertShow.value = false;
     if (isPay.value) {
-      store.commit("clearCart", { shopId });
+      store.commit("clearBasket", { shopId });
       router.push({ name: "Order" });
     }
   };
@@ -160,14 +194,14 @@ const useSubmitEffect = () => {
 export default {
   name: "OrderConfirm",
   setup() {
-    const { shopName, itemList, sumPrice, sumNumber } = useOrderEffect();
+    const { shopName, itemCheckedList, sumPrice, sumNumber } = useOrderEffect();
     const handleBack = useBackRouterEffect();
     const { showMore, handleMore } = useShowMoreEffect();
     const { alertShow, isPay, handleSubmit, closePanel, comfirmPay } =
       useSubmitEffect();
     return {
       shopName,
-      itemList,
+      itemCheckedList,
       sumPrice,
       sumNumber,
       handleBack,
@@ -275,8 +309,8 @@ export default {
       margin-bottom: 16rem;
     }
     &_info {
-      max-height: 108rem;
-      overflow-y: hidden;
+      max-height: 320rem;
+      overflow-y: auto;
       &_item {
         display: flex;
         margin-bottom: 6rem;

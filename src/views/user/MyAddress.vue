@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { useBackRouterEffect } from "../../effects/backEffect";
+import { useBackRouterEffect } from "@/effects/backEffect";
 export default {
   name: "MyAddress",
   setup() {
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/address-header.scss";
+@import "@/style/address-header.scss";
 @include top;
 .container {
   &_title {

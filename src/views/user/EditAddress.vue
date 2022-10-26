@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { useBackRouterEffect } from "../../effects/backEffect";
-import AddressForm from "../../components/AddressForm.vue";
+import { useBackRouterEffect } from "@/effects/backEffect";
+import AddressForm from "@/components/AddressForm.vue";
 export default {
   name: "EditAddress",
   components: { AddressForm },
@@ -21,6 +21,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/address-header.scss";
+@import "@/style/address-header.scss";
 @include top;
 </style>

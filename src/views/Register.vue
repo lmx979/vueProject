@@ -23,8 +23,8 @@
 <script>
 import { reactive, toRefs } from "vue";
 import { useRouter } from "vue-router";
-import { post } from "../utils/request";
-import Toast, { showToastEffect } from "../components/Toast.vue";
+import { post } from "@/utils/request";
+import Toast, { showToastEffect } from "@/components/Toast.vue";
 // 注册逻辑封装
 const userRegisterEffect = (showToast) => {
   const data = reactive({

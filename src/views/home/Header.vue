@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/mixins.scss";
+@import "@/style/mixins.scss";
 .container {
   position: absolute;
   left: 0;

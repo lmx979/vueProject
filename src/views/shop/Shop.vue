@@ -17,18 +17,18 @@
     </div>
     <ShopInfo :item="item" :showBorder="false" v-if="item.imgUrl" />
     <Content :shopName="item.title" />
-    <Cart :shopName="item.title" />
+    <Basket :shopName="item.title" />
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { get } from "../../utils/request";
-import { useBackRouterEffect } from "../../effects/backEffect";
-import ShopInfo from "../../components/ShopInfo.vue";
+import { get } from "@/utils/request";
+import { useBackRouterEffect } from "@/effects/backEffect";
+import ShopInfo from "@/components/ShopInfo.vue";
 import Content from "./Content.vue";
-import Cart from "./Cart.vue";
+import Basket from "./Basket.vue";
 // 获取店铺信息
 const useShopInfoEffect = () => {
   const router = useRoute();
@@ -41,7 +41,7 @@ const useShopInfoEffect = () => {
 };
 export default {
   name: "Shop",
-  components: { ShopInfo, Content, Cart },
+  components: { ShopInfo, Content, Basket },
   setup() {
     const { item, getItem } = useShopInfoEffect();
     const handleBack = useBackRouterEffect();

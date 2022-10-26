@@ -57,8 +57,8 @@
 <script>
 import { ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
-import { get } from "../../utils/request";
-import { useCommonCartEffect } from "../../effects/commonCartEffect";
+import { get } from "@/utils/request";
+import { useCommonCartEffect } from "@/effects/commonCartEffect";
 const tabItems = [
   { name: "all", text: "全部商品" },
   { name: "seckill", text: "秒杀" },
@@ -110,7 +110,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/mixins.scss";
+@import "@/style/mixins.scss";
 .content {
   position: absolute;
   top: 146rem;

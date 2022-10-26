@@ -17,7 +17,7 @@ import Search from "./Search.vue";
 import Banner from "./Banner.vue";
 import Nav from "./Nav.vue";
 import Nearby from "./Nearby.vue";
-import Docker from "../../components/Dockers.vue";
+import Docker from "@/components/Dockers.vue";
 export default {
   name: "Home",
   components: { Header, Search, Banner, Nav, Nearby, Docker },

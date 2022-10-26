@@ -21,7 +21,7 @@ export default {
     const router = useRouter();
     const dockerItems = [
       { name: "home", icon: "&#xe612;", text: "首页", path: "/" },
-      { name: "cart", icon: "&#xe61b;", text: "购物车", path: "/" },
+      { name: "cart", icon: "&#xe61b;", text: "购物车", path: "/cart" },
       { name: "order", icon: "&#xe626;", text: "订单", path: "/order" },
       { name: "user", icon: "&#xe615;", text: "我的", path: "/user" },
     ];
