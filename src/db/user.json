@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "phone": "zhangsan",
+    "password": "123456",
+    "img": "https://p.qqan.com/up/2020-10/16038656522745832.jpg"
+  },
+  {
+    "userId": 2,
+    "phone": "lisi",
+    "password": "123456",
+    "img": "https://p.qqan.com/up/2022-10/16661430931709821.jpg"
+  },
+  {
+    "userId": 3,
+    "phone": "wangwu",
+    "password": "123456",
+    "img": "https://p.qqan.com/up/2022-10/16661430925917997.jpg"
+  }
+]

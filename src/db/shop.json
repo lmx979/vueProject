@@ -1,0 +1,57 @@
+[
+    {
+        "shopId": 1,
+        "shopName": "沃尔玛",
+        "logo": "https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202202211407079.png",
+        "tags": [
+            "月售1万+",
+            "起送￥1",
+            "基础运费￥1"
+        ],
+        "notice": "VIP尊享满89元减4元运费券（每月1张）"
+    },
+    {
+        "shopId": 2,
+        "shopName": "永辉",
+        "logo": "https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202202211407079.png",
+        "tags": [
+            "月售1万+",
+            "起送￥1",
+            "基础运费￥1"
+        ],
+        "notice": "VIP尊享满89元减4元运费券（每月1张）"
+    },
+    {
+        "shopId": 3,
+        "shopName": "大润发",
+        "logo": "https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202202211407079.png",
+        "tags": [
+            "月售1万+",
+            "起送￥1",
+            "基础运费￥1"
+        ],
+        "notice": "VIP尊享满89元减4元运费券（每月1张）"
+    },
+    {
+        "shopId": 4,
+        "shopName": "华润万家",
+        "logo": "https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202202211407079.png",
+        "tags": [
+            "月售1万+",
+            "起送￥1",
+            "基础运费￥1"
+        ],
+        "notice": "VIP尊享满89元减4元运费券（每月1张）"
+    },
+    {
+        "shopId": 5,
+        "shopName": "盒马",
+        "logo": "https://markdown-1253389072.cos.ap-nanjing.myqcloud.com/202202211407079.png",
+        "tags": [
+            "月售1万+",
+            "起送￥1",
+            "基础运费￥1"
+        ],
+        "notice": "VIP尊享满89元减4元运费券（每月1张）"
+    }
+]
