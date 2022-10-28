@@ -61,25 +61,25 @@ const routes = [
   },
   // 我的地址页
   {
-    path: "/myAddress/:userId",
+    path: "/myAddress",
     name: "MyAddress",
     component: () => import("@/views/user/MyAddress"),
   },
   // 编辑地址页
   {
-    path: "/myAddress/edit/:addressId",
+    path: "/myAddress/edit",
     name: "EditAddress",
     component: () => import("@/views/user/EditAddress"),
   },
   // 新建地址页
   {
-    path: "/myAddress/create/:userId",
+    path: "/myAddress/create",
     name: "CreateAddress",
     component: () => import("@/views/user/CreateAddress"),
   },
   // 购物车页
   {
-    path: "/cart/",
+    path: "/cart",
     name: "Cart",
     component: () => import("@/views/shop/Cart"),
   },

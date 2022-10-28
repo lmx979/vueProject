@@ -35,7 +35,7 @@
       <div class="relevant_item_text">我的钱包</div>
       <div class="relevant_item_iconfont">&#xe6e7;</div>
     </div>
-    <router-link :to="{ path: `/myAddress/${userId}` }">
+    <router-link :to="{ path: `/myAddress` }">
       <div class="relevant_item">
         <div class="relevant_item_text">我的地址</div>
         <div class="relevant_item_iconfont">&#xe6e7;</div>

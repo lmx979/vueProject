@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header_back_iconfont" @click="handleBack">&#xe6e6;</div>
     <div class="header_text">管理收货地址</div>
-    <router-link :to="{ path: `/myAddress/create/${userId}` }">
+    <router-link :to="{ path: `/myAddress/create` }">
       <div class="header_create">新建</div></router-link
     >
   </div>
@@ -10,7 +10,7 @@
     <div class="container_title">
       我的收货地址<span class="iconfont">&#xe619;</span>
     </div>
-    <router-link :to="{ path: `/myAddress/edit/${addressId}` }">
+    <router-link :to="{ path: `/myAddress/edit` }">
       <div class="container_item">
         <div class="container_item_left">
           <div class="container_item_left_info">
